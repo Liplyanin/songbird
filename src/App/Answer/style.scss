@@ -7,32 +7,55 @@
     width: 30%;
     cursor: pointer;
   
+    #ul{
+        :nth-child(6){
+            border: none;
+        }
+    }
 
     ul{
         width: 100%;
-    }
-    .answerItem{
-        display: flex;
-        align-items: center;
-        padding: 10px 0 10px 30%;   
+        
+        
+        
+        &:hover{
 
-        list-style-type: none;
-        border: 1px solid black;
-        .str{
+            :nth-child(1){
+                border-radius: 15px 15px 0 0 ;
+            }
+            :nth-child(6){
+                border-radius:  0 0 15px 15px ;
+            }
+                
+            
+        
+        }
+        .answerItem{
             display: flex;
             align-items: center;
-            .dot{
-                height: 10px;
-                width: 10px;
-                background-color: blue;
-                border-radius: 50%;
-                margin-right: 20px;
-            }
-        }
-      
+            padding: 10px 0 10px 30%;   
 
-        &:hover{
-            background-color: brown;
+            list-style-type: none;
+            border-bottom: 1px solid rgb(143, 137, 137);
+            .str{
+                display: flex;
+                align-items: center;
+                .dot{
+                    height: 10px;
+                    width: 10px;
+                    background-color: rgb(247, 247, 247);
+                    border-radius: 50%;
+                    margin-right: 20px;
+                }
+            }
+            
+            &:hover{
+                background-color: rgba(114, 114, 114, 0.466);
+            }
+
+           
         }
+        
+        
     }
 }

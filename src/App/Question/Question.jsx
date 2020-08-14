@@ -13,6 +13,7 @@ const Question = ({ randomBird }) => (
         showJumpControls={false}
         customAdditionalControls={[]}
         autoPlayAfterSrcChange={false}
+        showDownloadProgress={false}
       />
     </div>
 

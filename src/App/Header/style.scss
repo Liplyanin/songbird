@@ -1,5 +1,5 @@
 .header{
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.8);
     border-radius: 15px;
 
     .levels{
@@ -9,6 +9,7 @@
         .item{
             border: 1px solid darkgreen;
             padding: 3px;
+            flex-grow: 1;
         }
     }
 }
