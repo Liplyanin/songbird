@@ -5,11 +5,24 @@
     .levels{
         display: flex;
         justify-content: space-between;
-    
+        border: 1px solid darkgreen;
+        border-radius: 15px;
+
         .item{
-            border: 1px solid darkgreen;
+           
             padding: 3px;
             flex-grow: 1;
+            border-right: 1px solid darkgreen ;
+        }
+    }
+
+    #levels{
+        :nth-child(6){
+            border-radius: 15px;      
+        }
+        :nth-child(1){
+            border-radius:  15px 0 0 15px ;    
+            background-color: green;  
         }
     }
 }

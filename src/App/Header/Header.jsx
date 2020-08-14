@@ -5,7 +5,7 @@ function Header() {
   return (
     <div className="header ">
       <h1>SONGBIRD</h1>
-      <div className="levels">
+      <div className="levels" id="levels">
         <div className="item">Разминка</div>
         <div className="item">Воробьиные</div>
         <div className="item">Лесные птицы</div>

@@ -33,6 +33,7 @@
     background-image: url('../assets/background.jpg');
     font-family: "AvenirNextCyr";
     color: papayawhip;
+    user-select: none;
 
     .wrapper{
         display: flex;

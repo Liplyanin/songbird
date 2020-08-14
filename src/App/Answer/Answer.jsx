@@ -8,6 +8,7 @@ const Answer = ({
   const handleBirdClick = ({ target }) => {
     getClickedBird(target.id - 1);
     const dot = document.querySelector(`.dot_${target.id}`);
+
     if (+target.id === randomBird.id) {
       dot.style = 'background-color: green;';
       correctRef.play();

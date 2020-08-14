@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import React from 'react';
 import Answer from './Answer/Answer';
 import Header from './Header/Header';
@@ -13,6 +12,7 @@ const stateDefault = {
   currentLevel: 0,
   clickedBird: null,
   veracityOfAnswer: false,
+  endOfGame: false,
 };
 
 class App extends React.Component {
@@ -57,18 +57,35 @@ class App extends React.Component {
   showNextLevel = () => {
     const { currentLevel } = this.state;
     const level = currentLevel + 1;
-    const randomBird = this.getRandomBird(birdsData[level].slice());
-    this.setState({
-      randomBird,
-      veracityOfAnswer: false,
-      clickedBird: null,
-      currentLevel: level,
-    });
+    const progres = document.getElementById('levels');
+    progres.children[currentLevel + 1].style = 'background-color: green';
+    if (level !== 5) {
+      const randomBird = this.getRandomBird(birdsData[level].slice());
+      this.setState({
+        randomBird,
+        veracityOfAnswer: false,
+        clickedBird: null,
+        currentLevel: level,
+      });
+    } else {
+      const randomBird = this.getRandomBird(birdsData[0].slice());
+      this.setState({
+        randomBird,
+        veracityOfAnswer: false,
+        clickedBird: null,
+        currentLevel: 0,
+        endOfGame: true,
+      });
+    }
+  }
+
+  resetGame=() => {
+
   }
 
   render() {
     const {
-      randomBird, data, currentLevel, clickedBird, veracityOfAnswer,
+      randomBird, data, currentLevel, clickedBird, veracityOfAnswer, endOfGame,
     } = this.state;
     return (
       <div className="app">
@@ -76,12 +93,32 @@ class App extends React.Component {
         <audio src={correct} ref={this.correct} />
         <div className="wrapper">
           {
-            this.state === stateDefault
-              ? ''
+            this.state === stateDefault || endOfGame
+              ? (
+                <div className="result">
+                  <h3> Поздравляем! </h3>
+                  <div className="text">
+                    Вы прошли викторину и набрали 19 из 30 возможных баллов
+                  </div>
+
+                  <button onClick={() => {
+                    this.setState({
+                      endOfGame: false,
+
+                    });
+                  }}
+                  >
+                    next
+
+                  </button>
+                </div>
+              )
               : (
                 <>
-                  <Header />
-                  <Question randomBird={randomBird} />
+                  <Header
+                    veracityOfAnswer={veracityOfAnswer}
+                  />
+                  <Question randomBird={randomBird} veracityOfAnswer={veracityOfAnswer} />
                   <div className="centralBlock">
                     <Answer
                       data={data}
