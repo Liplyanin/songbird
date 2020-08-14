@@ -9,10 +9,10 @@ const Answer = ({
     getClickedBird(target.id - 1);
     const dot = document.querySelector(`.dot_${target.id}`);
 
-    if (+target.id === randomBird.id) {
+    if (+target.id === randomBird.id && !veracityOfAnswer) {
       dot.style = 'background-color: green;';
       correctRef.play();
-    } else {
+    } else if (!veracityOfAnswer) {
       dot.style = 'background-color: red;';
       errorRef.play();
     }
@@ -31,7 +31,13 @@ const Answer = ({
         ))}
       </ul>
 
-      <button onClick={showNextLevel} disabled={!veracityOfAnswer}>Next Level</button>
+      <button
+        onClick={showNextLevel}
+        disabled={!veracityOfAnswer}
+        style={veracityOfAnswer ? { color: 'white', background: 'rgba(0, 128, 0, 0.548)' } : { color: '' }}
+      >
+        Next Level
+      </button>
     </div>
   );
 };

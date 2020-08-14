@@ -13,6 +13,8 @@ const stateDefault = {
   clickedBird: null,
   veracityOfAnswer: false,
   endOfGame: false,
+  points: 5,
+  score: 0,
 };
 
 class App extends React.Component {
@@ -32,6 +34,7 @@ class App extends React.Component {
       randomBird,
       data: birdsData,
     });
+    console.log('answer: ', randomBird.name);
   }
 
   getRandomBird = (array) => {
@@ -45,12 +48,16 @@ class App extends React.Component {
   }
 
   getClickedBird = (el) => {
-    const { data, currentLevel, randomBird } = this.state;
+    const {
+      data, currentLevel, randomBird, points, score,
+    } = this.state;
     const clickedBird = data[currentLevel][el];
     this.setState({ clickedBird });
 
     if (clickedBird.id === randomBird.id) {
-      this.setState({ veracityOfAnswer: true });
+      this.setState({ veracityOfAnswer: true, score: score + points });
+    } else {
+      this.setState({ points: points - 1 });
     }
   }
 
@@ -58,34 +65,34 @@ class App extends React.Component {
     const { currentLevel } = this.state;
     const level = currentLevel + 1;
     const progres = document.getElementById('levels');
-    progres.children[currentLevel + 1].style = 'background-color: green';
-    if (level !== 5) {
-      const randomBird = this.getRandomBird(birdsData[level].slice());
+    if (level !== 6) {
+      progres.children[currentLevel + 1].style = 'background-color: green';
+      const newRandomBird = this.getRandomBird(birdsData[level].slice());
       this.setState({
-        randomBird,
+        randomBird: newRandomBird,
         veracityOfAnswer: false,
         clickedBird: null,
         currentLevel: level,
+        points: 5,
       });
+
+      console.log('answer: ', newRandomBird.name);
     } else {
-      const randomBird = this.getRandomBird(birdsData[0].slice());
+      const newRandomBird = this.getRandomBird(birdsData[0].slice());
       this.setState({
-        randomBird,
+        randomBird: newRandomBird,
         veracityOfAnswer: false,
         clickedBird: null,
         currentLevel: 0,
         endOfGame: true,
+        points: 5,
       });
     }
   }
 
-  resetGame=() => {
-
-  }
-
   render() {
     const {
-      randomBird, data, currentLevel, clickedBird, veracityOfAnswer, endOfGame,
+      randomBird, data, currentLevel, clickedBird, veracityOfAnswer, endOfGame, score,
     } = this.state;
     return (
       <div className="app">
@@ -98,18 +105,27 @@ class App extends React.Component {
                 <div className="result">
                   <h3> Поздравляем! </h3>
                   <div className="text">
-                    Вы прошли викторину и набрали 19 из 30 возможных баллов
+                    Вы прошли викторину и набрали
+                    {' '}
+                    {score}
+                    {' '}
+                    из 30 возможных баллов
+                    <br />
+                    {
+                      score === 30
+                        ? <h2>теперь ты знаешь кто чирикнул!!!</h2>
+                        : ''
+                    }
                   </div>
 
                   <button onClick={() => {
                     this.setState({
                       endOfGame: false,
-
+                      score: 0,
                     });
                   }}
                   >
-                    next
-
+                    try again
                   </button>
                 </div>
               )
@@ -117,6 +133,7 @@ class App extends React.Component {
                 <>
                   <Header
                     veracityOfAnswer={veracityOfAnswer}
+                    score={score}
                   />
                   <Question randomBird={randomBird} veracityOfAnswer={veracityOfAnswer} />
                   <div className="centralBlock">

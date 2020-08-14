@@ -1,10 +1,17 @@
 import React from 'react';
 import './style.scss';
+import logo from '../../assets/logo.svg';
 
-function Header() {
+function Header({ score }) {
   return (
     <div className="header ">
-      <h1>SONGBIRD</h1>
+      <div className="logo">
+        <img src={logo} alt="logo" />
+        <div className="score">
+          Score:
+          {score}
+        </div>
+      </div>
       <div className="levels" id="levels">
         <div className="item">Разминка</div>
         <div className="item">Воробьиные</div>
