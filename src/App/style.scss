@@ -30,9 +30,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-image: url('../assets/background.jpg');
     font-family: "AvenirNextCyr";
-    
+    color: papayawhip;
+
     .wrapper{
         display: flex;
         flex-direction: column;
@@ -47,7 +48,8 @@
         }
 
         .container{
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
             margin: 20px 0;
         }
     }

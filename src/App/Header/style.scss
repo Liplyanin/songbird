@@ -1,9 +1,14 @@
-.levels{
-    display: flex;
-    justify-content: space-between;
+.header{
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
 
-    .item{
-        border: 1px solid darkgreen;
-        padding: 3px;
+    .levels{
+        display: flex;
+        justify-content: space-between;
+    
+        .item{
+            border: 1px solid darkgreen;
+            padding: 3px;
+        }
     }
 }

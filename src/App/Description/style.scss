@@ -1,3 +1,23 @@
-.description{
+.description_container{
     width: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+
+    .descritionHeader{
+        display: flex;
+        width: 90%;
+
+        img{
+            width: 150px;
+            height: 100px;
+        }
+
+        .player{
+            display: flex;
+            flex-direction: column;
+            width: 70%;
+        }
+    }
 }
