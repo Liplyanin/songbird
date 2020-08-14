@@ -1,0 +1,9 @@
+.levels{
+    display: flex;
+    justify-content: space-between;
+
+    .item{
+        border: 1px solid darkgreen;
+        padding: 3px;
+    }
+}

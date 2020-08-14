@@ -1,0 +1,54 @@
+@font-face {
+    font-family: "AvenirNextCyr-Bold";
+    src: url("../assets/fonts/AvenirNextCyr-Bold.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "AvenirNextCyr";
+    src: url("../assets/fonts/AvenirNextCyr-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "ArialRoundedMTProCyrBold";
+    src: url("../assets/fonts/ArialRoundedMTProCyr-Bold.otf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}    
+
+.app{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-family: "AvenirNextCyr";
+    
+    .wrapper{
+        display: flex;
+        flex-direction: column;
+        
+        max-width: 1020px;
+        width: 100%;
+        height: 90%;
+
+        .centralBlock{
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .container{
+            background-color: rgba(0, 0, 0, 0.5);
+            margin: 20px 0;
+        }
+    }
+}

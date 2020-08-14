@@ -1,0 +1,28 @@
+.rhap_container {
+    background-color: rgba(0, 0, 0, 0);
+    
+    .rhap_time{
+        color: white  ;
+    }
+    // .rhap_progress-indicator{
+    //     background: red;
+    // }
+}
+
+
+.question{
+    display: flex;
+
+    img{
+        width: 200px;
+        max-height: 150px;
+        border-radius: 10%;
+    }
+
+    .playerContainer{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+}
