@@ -8,6 +8,7 @@
         .score{
             margin: 5px;
         }
+        
         img{
             width: 150px;
             margin: 5px;
@@ -24,6 +25,10 @@
             padding: 3px;
             flex-grow: 1;
             border-right: 1px solid darkgreen ;
+        }
+
+        @media (max-width: 750px){
+            display: none;
         }
     }
 

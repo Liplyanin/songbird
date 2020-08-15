@@ -1,4 +1,8 @@
 .answer{
+    @media (max-width: 750px){
+        min-width: 225px;
+    }
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,6 +13,10 @@
     position: relative;
 
     button{
+        @media (max-width: 750px){
+            left: -13px;
+        }
+
         position: absolute;
         top: 105%;
         left: 110%;
