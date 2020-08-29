@@ -1,0 +1,44 @@
+.header{
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+
+    .logo{
+        display: flex;
+        justify-content: space-between;
+        .score{
+            margin: 5px;
+        }
+        
+        img{
+            width: 150px;
+            margin: 5px;
+        }
+    }
+    .levels{
+        display: flex;
+        justify-content: space-between;
+        border: 1px solid darkgreen;
+        border-radius: 15px;
+
+        .item{
+           
+            padding: 3px;
+            flex-grow: 1;
+            border-right: 1px solid darkgreen ;
+        }
+
+        @media (max-width: 750px){
+            display: none;
+        }
+    }
+
+    #levels{
+        :nth-child(6){
+            border-radius: 0 15px 15px 0;  
+        }
+        :nth-child(1){
+            border-radius:  15px 0 0 15px ;    
+            background-color: green;  
+        }
+    }
+}

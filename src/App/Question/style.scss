@@ -1,0 +1,37 @@
+.rhap_container {
+    background-color: rgba(0, 0, 0, 0);
+    
+    .rhap_time{
+        color: white  ;
+    }
+}
+
+
+.question{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    img{
+        @media (max-width: 750px){
+            width: 80px;
+            height: 60px;
+        }
+        width: 130px;
+        height: 100px;
+        border-radius: 10%;
+        margin: 10px;
+    }
+
+    .playerContainer{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        h1{
+            margin-left: 15px;
+        }
+    }
+
+}
